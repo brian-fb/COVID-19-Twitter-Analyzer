@@ -8,7 +8,15 @@
 .classpath
 .project
 .settings
-.idea
+
+/backend/.idea
+/backend/Data/__pycache__/
+/backend/Data/utils/__pycache__/
+/backend/Sentiment/__pycache__/
+/backend/Summarization/__pycache__/
+/backend/Credibility/__pycache__/
+/backend/result/processed_daily_tweets/.ipynb_checkpoints/
+
  ##filter databfile、sln file##
 *.mdb
 *.ldb
