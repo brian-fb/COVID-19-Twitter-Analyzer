@@ -1,0 +1,17 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: osx-64
+
+pandas
+numpy
+jsonlines
+pyspark
+stanza
+tensorflow-cpu
+tokenizers
+torch
+tqdm
+transformers[tf-cpu]
+twarc
+tweepy
+wordcloud
