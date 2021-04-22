@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="18a42432-419a-4daf-9032-9a7ee2d0f118" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1rUGAu10jmxvKS3o0oYy8crTvif" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="COVID-19-Twitter-Analyzer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/opt/anaconda3/envs/twitter/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="18a42432-419a-4daf-9032-9a7ee2d0f118" name="Default Changelist" comment="" />
+      <created>1619023115165</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619023115165</updated>
+      <workItem from="1619023119615" duration="313000" />
+      <workItem from="1619023438039" duration="1281000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2297" y="-654" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619023327200">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state x="2297" y="-654" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023327200" />
+    <state x="2570" y="-507" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1619023565818">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state x="2570" y="-507" key="#com.intellij.fileTypes.FileTypeChooser/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023565818" />
+    <state x="2404" y="-731" key="CommitChangelistDialog2" timestamp="1619023193410">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state x="2404" y="-731" key="CommitChangelistDialog2/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023193410" />
+    <state width="2069" height="138" key="GridCell.Tab.0.bottom" timestamp="1619023433659">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state width="2069" height="138" key="GridCell.Tab.0.bottom/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023433659" />
+    <state width="2069" height="138" key="GridCell.Tab.0.center" timestamp="1619023433658">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state width="2069" height="138" key="GridCell.Tab.0.center/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023433658" />
+    <state width="2069" height="138" key="GridCell.Tab.0.left" timestamp="1619023433657">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state width="2069" height="138" key="GridCell.Tab.0.left/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023433657" />
+    <state width="2069" height="138" key="GridCell.Tab.0.right" timestamp="1619023433658">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state width="2069" height="138" key="GridCell.Tab.0.right/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023433658" />
+    <state width="2069" height="426" key="GridCell.Tab.1.bottom" timestamp="1619023433651">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state width="2069" height="426" key="GridCell.Tab.1.bottom/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023433651" />
+    <state width="2069" height="426" key="GridCell.Tab.1.center" timestamp="1619023433651">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state width="2069" height="426" key="GridCell.Tab.1.center/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023433651" />
+    <state width="2069" height="426" key="GridCell.Tab.1.left" timestamp="1619023433650">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state width="2069" height="426" key="GridCell.Tab.1.left/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023433650" />
+    <state width="2069" height="426" key="GridCell.Tab.1.right" timestamp="1619023433651">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state width="2069" height="426" key="GridCell.Tab.1.right/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023433651" />
+    <state x="2341" y="-677" key="SettingsEditor" timestamp="1619023430959">
+      <screen x="1680" y="-1055" width="2560" height="1415" />
+    </state>
+    <state x="2341" y="-677" key="SettingsEditor/1680.-1055.2560.1415/0.25.1680.1025@1680.-1055.2560.1415" timestamp="1619023430959" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/COVID_19_Twitter_Analyzer$senti_workflow.coverage" NAME="senti_workflow Coverage Results" MODIFIED="1619023267216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/COVID_19_Twitter_Analyzer$__init__.coverage" NAME="twitter Coverage Results" MODIFIED="1619023237698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+  </component>
+</project>

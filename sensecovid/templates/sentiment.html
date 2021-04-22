@@ -1,0 +1,731 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>Sensecovid</title>
+	<!--favicon-->
+	<link rel="icon" href="../sensecovid/static/image/favicon-32x32.png" type="image/png" />
+	<!-- Vector CSS -->
+	<link href="../sensecovid/static/css/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+	<!--plugins-->
+	<link href="../sensecovid/static/css/simplebar.css" rel="stylesheet" />
+	<link href="../sensecovid/static/css/perfect-scrollbar.css" rel="stylesheet" />
+	<link href="../sensecovid/static/css/metisMenu.min.css" rel="stylesheet" />
+	<!-- loader-->
+	<link href="../sensecovid/static/css/pace.min.css" rel="stylesheet" />
+	<script src="../sensecovid/static/js/pace.min.js"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="../sensecovid/static/css/bootstrap.min.css" />
+	<!-- Icons CSS -->
+	<link rel="stylesheet" href="../sensecovid/static/css/icons.css" />
+	<!-- App CSS -->
+	<link rel="stylesheet" href="../sensecovid/static/css/app.css" />
+	<style type="text/css">
+		.title-text{
+			font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			text-align:center; 
+			font-weight: bold;
+			font-size: 25px;
+		}
+		.normal-text{
+			font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			text-align:center; 
+			font-size: 17px;
+		}
+		.float-title{
+			padding-right:10%;
+			height: 100px;
+			right: 100px;
+			float: right;
+		}
+		.float-title-text{
+			font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			text-align:right; 
+		}
+	</style>
+	
+</head>
+
+<body class="bg-theme bg-theme2">
+	<!-- wrapper -->
+	<div class="wrapper">
+		<!--sidebar-wrapper-->
+		<div class="sidebar-wrapper" data-simplebar="true" id="side_bar" >
+			<div class="sidebar-header" >
+				<div>
+					<!-- 左侧导航栏名 -->
+					<h4 class="logo-text" id="top_menu">Sensecovid</h4>
+				</div>
+				<a href="javascript:;" class="toggle-btn ml-auto"> <i class="bx bx-menu"></i>
+				</a>
+			</div>
+			<!--navigation-->
+			<ul class="metismenu" id="menu">
+				<li>
+					<a href="/">   <!-- emailbox.html-->
+						<div class="parent-icon"><i class="bx bx-home-alt"></i>
+						</div>
+						<div class="menu-title" name="menu" >Home</div>
+					</a>
+				</li>
+				<li>
+					<a href="sentiment">   <!-- emailbox.html-->
+						<div class="parent-icon"><i class="bx bx-group"></i>
+						</div>
+						<div class="menu-title" name="menu">Sentiment</div>
+					</a>
+				</li>
+				<li>
+					<a href="credibility">  <!-- chat-box.html-->
+						<div class="parent-icon"> <i class="bx bx-analyse"></i>
+						</div>
+						<div class="menu-title" name="menu">Credibility</div>
+					</a>
+				</li>
+				<li>
+					<a href="story">  <!-- file-manager.html-->
+						<div class="parent-icon"><i class="bx bx-book-reader"></i>
+						</div>
+						<div class="menu-title" name="menu">Story</div>
+					</a>
+				</li>
+			</ul>
+			<!--end navigation-->
+		</div>
+		<!--end sidebar-wrapper-->
+		
+		<!--page-wrapper-->
+		<div class="page-wrapper">
+			<!--page-content-wrapper-->
+			<div class="page-content-wrapper">
+				<div class="page-content">
+					<!--breadcrumb-->
+					<div class="page-breadcrumb d-flex d-md-flex align-items-center mb-3">
+
+						<div class="left-topbar d-flex align-items-center">
+							<a href="javascript:;" class="toggle-btn">	<i class="bx bx-menu"></i>
+							</a>
+						</div>
+
+						<div class="breadcrumb-title pr-3 d-none d-md-flex ">Sensecovid</div>
+						<div class="pl-3 d-none d-md-flex">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb mb-0 p-0">
+									<li class="breadcrumb-item"><i class='bx bxs-chevron-right'>Sentiment Analysis</i></a>
+									</li>
+								</ol>
+							</nav>
+						</div>
+						<div class="ml-auto" style="float: right;" >
+							<div class="butt m-1" id="clock">  </div>	
+						</div>
+					</div>
+					<!--end breadcrumb-->
+
+					<div class="radius-15">
+						<div class="card-body" b="{{day_active}}" tabs="{{day_ids}}" id="day_active_tab">
+							<div class="btn-group">
+								<form id="user_post" action="sentiment" method="POST">
+									<button type="button" class="btn btn-light dropdown-toggle normal-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Date: {{day_active}}</button>
+									<div class="dropdown-menu">
+										{% for day_id in day_ids %}
+										<li class="dropdown-item"> <button class="btnnav btn-nav" id="{{day_id}}" type="submit" name="tab_number" value="{{day_id}}">{{day_id}}</button></li>
+										{% endfor %}
+									</div>
+								</form>
+								
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12-new col-lg-8-new flex-lg-row" >
+								<div class="card radius-15">
+									<div class="card-body">
+										<div class="text title-text"  >
+											<h4 class="title-text">U.S. Sentiment Map</h4>
+											<hr/>
+										</div>
+										<div id="geographic" ></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12-new col-lg-4-new flex-lg-row" >
+								<div class="card radius-15">
+									<div class="card-body">
+										<div class="text title-text">
+											<h4 >State-wise Word Cloud</h4>
+											<hr/>
+										</div>
+									</div>
+									<div style="text-align: center;">
+										<!--  -->
+										<img id="image" src="../sensecovid/static/data/California.png"  alt="..." style="width: 100%;max-width: 550px;"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end row -->
+					<div class="row" >
+						<div class="col-lg-12 col-xl-12">
+							<div class="card radius-15">
+								<div class="card-body" style="padding: 20px;">
+									<div class="text title-text">
+										<h4 >State-wise Sentiment Percentage Trend</h4>
+										<hr/>
+									</div>
+									<div class="float-title">
+										<h4 class="float-title-text" id="pie_title" style="right: 15%;"></h4> 
+										<p class="float-title-text" id="pie_subtitle" style="right: 20%;"></p>
+									</div>
+									<div id="chart6" class="chart-container2" style="height: 600px;" ></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end row -->
+					<div class="row" >
+						<div class="col-lg-12 col-xl-12">
+							<div class="card radius-15">
+								<div class="card-body" style="padding: 20px;">
+									<div class="text title-text">
+										<h4 >State-wise Sentiment Score Trend</h4>
+										<hr/>
+									</div>
+									<!-- <div class="float-title">
+										<h4 class="float-title-text" id="pie_title" style="right: 15%;"></h4> 
+										<p class="float-title-text" id="pie_subtitle" style="right: 20%;"></p>
+									</div> -->
+									<div id="line_chart" class="chart-container2" style="height: 400px;" ></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end row -->
+					<div id="abcde"></div>
+				</div>
+			</div>
+			<!--end page-content-wrapper-->
+		</div>
+		<!--end page-wrapper-->
+
+		<!--start overlay-->
+		<div class="overlay toggle-btn-mobile"></div>
+		<!--end overlay-->
+
+		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		<!--End Back To Top Button-->
+
+		<!--footer -->
+		<div class="footer">
+			<p class="mb-0">6895 Big Data Analytics | Developed By ct2990 bf2477
+			</p>
+		</div>
+		<!-- end footer -->
+
+	</div>
+	<!-- end wrapper -->
+	
+	<!-- JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="../sensecovid/static/js/jquery.min.js"></script>
+	<script src="../sensecovid/static/js/popper.min.js"></script>
+	<script src="../sensecovid/static/js/bootstrap.min.js"></script>
+	<!--plugins-->
+	<script src="../sensecovid/static/js/simplebar.min.js"></script>
+	<script src="../sensecovid/static/js/metisMenu.min.js"></script>
+	<script src="../sensecovid/static/js/perfect-scrollbar.js"></script>
+	<!-- Charts -->
+	<script src="../sensecovid/static/js/echarts.min.js"></script>
+	<!-- App JS -->
+	<script src="../sensecovid/static/js/app.js"></script>
+	<script>
+		new PerfectScrollbar('.dashboard-social-list');
+		new PerfectScrollbar('.dashboard-top-countries');
+	</script>
+
+	<script>
+		//时间显示系统
+		function time() {
+			var today = new Date((new Date()).getTime());
+			var utc = today.getTime() + (today.getTimezoneOffset() * 60000);
+			var nyDate = new Date(utc + (3600000 * (-4)));
+			var nyhour = nyDate.getHours() < 9 ? ("0" + nyDate.getHours()) : nyDate.getHours();
+            var time;
+            var day;
+            var min;    //= today.getMinutes();
+            if(today.getMinutes()<10){
+                min = "0" + today.getMinutes();
+            }else {
+                min = today.getMinutes();
+            }
+            var second; //= today.getMinutes();
+            if(today.getSeconds()<10){
+                second = "0" + today.getSeconds();
+            }else {
+                second = today.getSeconds();
+            }
+			var strnytime = nyhour + ":" + min + ":" + second + "&nbsp;";
+			document.getElementById("clock").innerHTML = (nyDate.getFullYear() + "-" + (nyDate.getMonth() + 1) + "-" + nyDate.getDate() + " " + strnytime + ' EDT');
+        }
+        var myTime = setInterval("time()", 1000);
+	</script>
+
+	<script>
+		getWidth();
+		var date = document.getElementById('day_active_tab').getAttribute('b');  //active的tab  eg.'2020-12-23'
+		var all_days = [];
+		var x = document.getElementsByName('tab_number');
+		for(var i=0; i<x.length; i++){
+			all_days.push(x[i].id);
+		}
+		var tab_obj = document.getElementById(date);
+		tab_obj.className += ' active';
+
+		var usadata = [];
+		var piedata = [];
+		var original_pie_content = {'xaxis':['Date', '2020-04-13', '2020-04-12', '2020-04-11', '2020-04-10', '2020-04-19', '2020-04-18'],
+				'Positive':['Positive',0, 0, 0, 0, 0, 0],
+                'Neutral':['Neutral', 0, 0, 0, 0, 0, 0],
+                'Negative':['Negative', 0, 0, 0, 0, 0, 0]}
+		var pie_contents = {};
+
+		$.ajax({
+            url: "../backend/result/daily_senti_results/" + date + "/scaled_senti_by_state.json",
+            type: "GET",
+            async: false,
+            dataType: "json",
+            success: function (jsonmap) {
+				usadata = jsonmap;
+				// alert('mapdata success')
+			},
+			error : function(data, type, err) {
+				alert("map错误类型：" + type + "; 错误信息：" + err);
+			}
+		});
+		$.ajax({
+            url: "../backend/result/senti_trend.json",
+            type: "GET",
+            async: false,
+            dataType: "json",
+            success: function (jsonline) {
+				linedata = jsonline;
+				// alert('linedata success')
+			},
+			error : function(data, type, err) {
+				alert("line 错误类型：" + type + "; 错误信息：" + err);
+			}
+		});
+		for(var i in all_days){
+			pie_url = "../backend/result/daily_senti_results/" + all_days[i] + "/senti_percentage_by_state.json";
+			// alert(pie_url);
+			$.ajax({
+				url: pie_url,
+				type: "GET",
+				async: false,
+				dataType: "json",
+				success: function (jsonpie) {
+					pie_contents[all_days[i]] = jsonpie;
+				},
+				error : function(data, type, err) {
+					alert("pie_line 错误类型：" + type + "; 错误信息：" + err + all_days[i]);
+				}
+			});
+		}
+		
+		var mapChart = echarts.init(document.getElementById('geographic'));
+		var pieChart = echarts.init(document.getElementById('chart6'));
+		var lineChart = echarts.init(document.getElementById('line_chart'));
+
+		mapChart.showLoading();
+		pie_line("", original_pie_content);
+		line("");
+		USAmap();
+
+		function USAmap() {
+			$.get("../backend/Data/utils/USA.json", function(usaJson) {
+				mapChart.hideLoading();
+				//   alert("success");
+				echarts.registerMap('USA', usaJson, {
+					Alaska: {              // 把阿拉斯加移到美国主大陆左下方
+						left: -131,
+						top: 25,
+						width: 15
+					},
+					Hawaii: {
+						left: -110,        // 夏威夷
+						top: 28,
+						width: 5
+					},
+					'Puerto Rico': {       // 波多黎各
+						left: -76,
+						top: 26,
+						width: 2
+					}
+				});
+				var mapoption = {
+					title: {
+						text: date,
+						left: 'right',
+						textStyle: {
+							color: "#fff"
+						},
+					},
+					tooltip: {                           //各个state上浮动信息框
+						trigger: 'item',
+						showDelay: 0,
+						transitionDuration: 0.2,
+						formatter: function (params) {
+							var value = (params.value + '').split('.');
+							value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,');
+							return params.seriesName + '<br/>' + params.name + ': ' + value;
+							}
+					},
+					visualMap: {                         //右下角标尺数值条
+						left: 'right',
+						min: -55,
+						max: 55,
+						inRange: {
+							color: ["rgba(49,54,149,0.8)", "rgba(69,117,180,0.8)", "rgba(116,173,209,0.8)", "rgba(171,217,233,0.8)",
+									"rgba(224,243,248,0.8)", "rgba(255,255,191,0.8)", "rgba(254,224,144,0.8)", "rgba(253,174,97,0.8)",
+									"rgba(244,109,67,0.8)", "rgba(215,48,39,0.8)", "rgba(165,0,38,0.8)" ]
+						},
+						text: ['High', 'Low'],           // 文本，默认为数值文本
+						textStyle: {
+							color: "#B0C4DE",
+							fontSize: 11
+						},
+						calculable: true
+					},
+					toolbox: {                         //左上角工具箱 ta view/restore/save image
+						show: true,
+						//orient: 'vertical',
+						left: 'left',
+						// top: '10%',
+						feature: {
+							dataView: {readOnly: false},
+							restore: {},
+							saveAsImage: {}
+						},
+						iconStyle: {
+							borderColor: "#fff"
+						}
+					},
+					regions: [{
+						name: "Puerto Rico",
+						itemStyle: {      // 隐藏地图
+							normal: {
+								opacity: 0, // 为 0 时不绘制该图形
+							}
+						},
+						label: {
+							show: false // 隐藏文字
+						}
+					}],
+					series: [{
+							name: 'Sentiment Score',
+							type: 'map',
+							roam: true,
+							map: 'USA',
+							geoIndex: 0,
+							// top: '70px',
+							emphasis: {
+								itemStyle:{
+									show: true,
+									areaColor: "rgba(146, 190, 140, 0.75)" //鼠标划过区域颜色
+								},
+								label: {
+									show: true,
+									textStyle: {
+										color: '#000'
+									}
+								}
+							},
+							select: {
+								itemStyle:{
+									show: true,
+									areaColor: "rgba(146, 190, 140, 0.75)" //鼠标移开区域颜色
+								},
+								label: {
+									show: true,
+									textStyle: {
+										color: '#000'
+									}
+								}
+							},
+							textFixed: {      // 文本位置修正
+								Alaska: [20, -20]
+							},
+							data: usadata    //give the data
+					}]   //end of series
+				};    //end of option
+				mapChart.setOption(mapoption);
+
+				mapChart.on('click', function (params) {
+					pic(params);
+					pie_line(params,pie_contents);
+					line(params);
+				});
+			}).fail( function(d, textStatus, error) {
+				alert("get usa map url fail!")
+			});    //end of get
+        };       //end of USAmp function
+
+		function line(params){
+			if(params==""){                   //init pie_line
+				cityName = "New York";
+			}
+			else{
+				cityName = params.name;
+			}
+			var city_line = [];
+			for (var i in all_days){
+				x = linedata[all_days[i]][cityName]
+				x = Math.floor(x*100)/100
+				city_line.push(x);
+			}
+			line_option = {
+				title: {
+					text: cityName,
+					left: 'center',
+					textStyle: {
+						color: "#fff",
+						fontSize:20
+					},
+				},
+				tooltip: {
+					trigger: 'axis'
+				},
+				legend: {
+					orient: 'vertical',
+					right:'5%',
+					top:'8%',
+					textStyle: {
+						color: "#fff",
+						fontSize: 17
+					}
+				},
+				color: "#6DAC93",
+				grid: {
+					left: '3%',
+					right: '4%',
+					bottom: '12%',
+					top:'18%',
+					containLabel: true,
+					borderColor:'#6DAC93'
+				},
+				dataZoom: [{
+					type: 'inside',
+					start: 0,
+					end: 50,
+					
+				}, {
+					textStyle: {
+						color: "#fff",
+					},
+					start: 0,
+					end: 10
+				}],
+				toolbox: {
+					feature: {
+						saveAsImage: {}
+					},
+					iconStyle: {
+							borderColor: "#fff"
+						}
+				},
+				axisLabel: {    //横纵坐标刻度
+					color: '#fff'
+				},
+				xAxis: {
+					type: 'category',
+					boundaryGap: false,
+					data: all_days,
+					axisLine: {
+						lineStyle: {
+							color: "#B6CCD1"
+						}
+					}
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: [{
+						name: 'Sentiment Score',
+						type: 'line',
+						data: city_line,
+						smooth: true
+				}]
+			};
+
+			lineChart.setOption(line_option);
+		}
+		
+		function pie_line(params,pie_data){
+			if(params==""){                   //init pie_line
+				cityName = "";
+				pie_data_format = pie_data;
+			}
+			else{
+				cityName = params.name;
+				var pie_data_format = {'xaxis':['Date'],'Positive':['Positive'],'Neutral':['Neutral'],'Negative':['Negative']};
+				for(var day in pie_data){
+					pie_data_format['xaxis'].push(day);
+					pie_data_format['Positive'].push(pie_data[day][cityName]['positive']);
+					pie_data_format['Neutral'].push(pie_data[day][cityName]['neutral']);
+					pie_data_format['Negative'].push(pie_data[day][cityName]['negative']);
+				}
+			}
+			var dimen = pie_data_format['xaxis'][1];
+			document.getElementById('pie_title').innerHTML= cityName;
+
+			pie_line_option = {
+				legend: {
+					orient: 'vertical',
+					left:'5%',
+					top:'2%',
+					textStyle: {
+						color: "#fff",
+						fontSize: 17
+					}
+				},
+				color: ["rgba(239, 224, 200, 0.7)","rgba(255, 255, 255, 0.7)","rgba(247, 200, 195, 0.7)"],
+				tooltip: {
+					trigger: 'axis',  
+					showContent: false,
+					// triggerOn: "click",
+				},
+				dataset: {
+					source: [
+						pie_data_format['xaxis'],
+						pie_data_format['Positive'],
+						pie_data_format['Neutral'],
+						pie_data_format['Negative']
+					]
+				},
+				axisLabel: {    //横纵坐标刻度
+					color: '#fff'
+				},
+				xAxis: {
+					type: 'category',
+					triggerEvent: true,
+					axisLine: {
+						lineStyle: {
+							color: "#B6CCD1"
+						}
+					}
+				},
+				yAxis: {gridIndex:0},
+				grid: {
+					top: '50%',  //折线图顶端距div顶端
+				},
+				dataZoom: [{
+					type: 'inside',
+					start: 0,
+					end: 50
+				}, {
+					start: 0,
+					end: 10
+				}],
+				series: [
+					{type: 'line', smooth: true, seriesLayoutBy: 'row', emphasis: {focus: 'series'}},
+					{type: 'line', smooth: true, seriesLayoutBy: 'row', emphasis: {focus: 'series'}},
+					{type: 'line', smooth: true, seriesLayoutBy: 'row', emphasis: {focus: 'series'}},
+					{
+						type: 'pie',
+						id: 'pie',
+						radius: '35%',  //pie大小
+						center: ['48%', '25%'],   //pie位置
+						emphasis: {focus: 'data'},
+						label: {                  //pie边注释
+							formatter: '{b}: {@'+dimen+'} ({d}%)',    //{b}类名，{d}百分比
+							color: "#fff",
+							fontSize:14
+						},
+						encode: {
+							itemName: pie_data_format['xaxis'][0],
+							value: dimen,
+							tooltip: dimen
+						}
+					}
+				]
+			};
+
+			pieChart.on('updateAxisPointer', function (event) {
+				var xAxisInfo = event.axesInfo[0];
+				if (xAxisInfo) {
+					document.getElementById('pie_subtitle').innerHTML= all_days[xAxisInfo.value] ;
+					var dimension = xAxisInfo.value + 1;
+					pieChart.setOption({
+						series: {
+							id: 'pie',
+							label: {
+								formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+							},
+							encode: {
+								value: dimension,
+								tooltip: dimension
+							}
+						}
+					});
+				}
+			});
+			pieChart.on('mouseover',function(param){
+				pieChart.dispatchAction({
+						type: 'highlight',
+						seriesIndex: 3,
+						dataIndex: param.seriesIndex
+				});
+			});
+			pieChart.on('mouseout',function(param){
+				pieChart.dispatchAction({
+					type: 'downplay',
+					seriesIndex: 3,
+					dataIndex: param.seriesIndex
+				});         
+			});
+
+			pieChart.setOption(pie_line_option);
+		}
+
+		
+		function pic(params) {
+            var cityname = params.name;
+			picpath = "../backend/result/daily_senti_results/"+date+"/word_cloud/"+cityname+".png";
+            document.getElementById("image").src = picpath;
+        };
+		setTimeout(function (){
+			window.addEventListener("resize", function () {
+				mapChart.resize();
+				pieChart.resize();
+				lineChart.resize();
+				getWidth();
+			});
+		},200)
+		setTimeout();
+		function getWidth(){
+			var Div=document.getElementById('side_bar');
+			w = Div.clientWidth||Div.offsetWidth;
+			var top_side_div=document.getElementById('top_menu');
+			var side_div=document.getElementsByName('menu');
+			if(w > 290){
+				side_div.forEach(function (element) {
+					element.style.fontSize = '26px';
+				});
+				top_side_div.style.fontSize = '33px';
+			}
+			if(w < 260){
+				side_div.forEach(function (element) {
+					element.style.fontSize = '20px';
+				});
+				top_side_div.style.fontSize = '25px'
+			}
+		};
+
+	</script>
+</body>
+
+</html>

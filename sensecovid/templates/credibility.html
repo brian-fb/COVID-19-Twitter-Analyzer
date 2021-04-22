@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>Sensecovid</title>
+	<!--favicon-->
+	<link rel="icon" href="../sensecovid/static/image/favicon-32x32.png" type="image/png" />
+	<!-- Vector CSS -->
+	<link href="../sensecovid/static/css/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+	<!--plugins-->
+	<link href="../sensecovid/static/css/lobibox.min.css" rel="stylesheet" />
+	<link href="../sensecovid/static/css/simplebar.css" rel="stylesheet" />
+	<!-- <link href="../sensecovid/static/css/perfect-scrollbar.css" rel="stylesheet" /> -->
+	<link href="../sensecovid/static/css/metisMenu.min.css" rel="stylesheet" />
+	<!-- loader-->
+	<link href="../sensecovid/static/css/pace.min.css" rel="stylesheet" />
+	<!-- <script src="../sensecovid/static/js/pace.min.js"></script> -->
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="../sensecovid/static/css/bootstrap.min.css" />
+	<!-- Icons CSS -->
+	<link rel="stylesheet" href="../sensecovid/static/css/icons.css" />
+	<!-- App CSS -->
+	<link rel="stylesheet" href="../sensecovid/static/css/app.css" />
+	
+	<style type="text/css">
+		.test_credibility{
+			text-align: center;
+			/* margin-left: 6rem !important; */
+			margin-bottom: 0rem
+		}
+		.center {
+  			text-align: center !important;
+		}
+		.card_content_text{
+			font-size: 1.1rem;
+		}
+		.my_card_title{
+			font-weight: bold; 
+			font-family:'Franklin Gothic Medium','Arial Narrow', Arial, sans-serif
+		}
+	</style>
+</head>
+
+<body class="bg-theme bg-theme2">
+	<!-- wrapper -->
+	<div class="wrapper">
+		<!--sidebar-wrapper-->
+		<div class="sidebar-wrapper" data-simplebar="true" id="side_bar">
+			<div class="sidebar-header" >
+				<div>
+					<!-- 左侧导航栏名 -->
+					<h4 class="logo-text" id="top_menu">Sensecovid</h4>
+				</div>
+				<a href="javascript:;" class="toggle-btn ml-auto"> <i class="bx bx-menu"></i>
+				</a>
+			</div>
+			<!--navigation-->
+			<ul class="metismenu" id="menu">
+				<li>
+					<a href="/">   <!-- emailbox.html-->
+						<div class="parent-icon"><i class="bx bx-home-alt"></i>
+						</div>
+						<div class="menu-title" name="menu" >Home</div>
+					</a>
+				</li>
+				<li>
+					<a href="sentiment">   <!-- emailbox.html-->
+						<div class="parent-icon"><i class="bx bx-group"></i>
+						</div>
+						<div class="menu-title" name="menu">Sentiment</div>
+					</a>
+				</li>
+				<li>
+					<a href="credibility">  <!-- chat-box.html-->
+						<div class="parent-icon"> <i class="bx bx-analyse"></i>
+						</div>
+						<div class="menu-title" name="menu">Credibility</div>
+					</a>
+				</li>
+				<li>
+					<a href="story">  <!-- file-manager.html-->
+						<div class="parent-icon"><i class="bx bx-book-reader"></i>
+						</div>
+						<div class="menu-title" name="menu">Story</div>
+					</a>
+				</li>
+			</ul>
+			<!--end navigation-->
+		</div>
+		<!--end sidebar-wrapper-->
+
+		<!--page-wrapper-->
+		<div class="page-wrapper">
+			<!--page-content-wrapper-->
+			<div class="page-content-wrapper">
+				<div class="page-content">
+					<!--breadcrumb-->
+					<div class="page-breadcrumb d-flex d-md-flex align-items-center mb-3">
+						<div class="left-topbar d-flex align-items-center">
+							<a href="javascript:;" class="toggle-btn">	<i class="bx bx-menu"></i>
+							</a>
+						</div>
+						<div class="breadcrumb-title pr-3 d-none d-md-flex ">Sensecovid</div>
+						<div class="pl-3 d-none d-md-flex">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb mb-0 p-0">
+									<li class="breadcrumb-item"><i class='bx bxs-chevron-right'>Credibility Analysis</i></a>
+									</li>
+								</ol>
+							</nav>
+						</div>
+						<div class="ml-auto">
+							<div class="butt m-1" id="clock">  </div>
+							<a href="credibility_history">
+								<button type="button" class="btn btn-light m-1" data-toggle="tooltip" data-placement="top" title="History"> <i class='bx bx-history'></i> </button>	
+							</a>
+						</div>
+					</div>
+					<!--end breadcrumb-->
+					<!-- start navbar row -->
+					<nav class="navbar navbar-expand-lg navbar-light bg-light mt-4 my-4 rounded shadow-sm"> 
+						<div style="width: 90%;">
+							<h2 class="test_credibility my_card_title" >Test the Credibility</h2> 
+						</div>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">	<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent1">
+							<ul class="navbar-nav mr-auto">
+							</ul>
+							<form class="form-inline my-2 my-lg-0 mr-5 nav-search" style="right: 30px;" action="credibility" method="POST">
+								<div class="input-group nav-width">
+									<input type="text" class="form-control" placeholder="paste in the tweet you want to confirm" aria-label="tweet content" name="tweet_content" autocomplete="off">
+									<div class="input-group-append border-left-0 ml-0">
+										<button class="btn border-left-0" type="submit" name="query" value="key1"><i class='bx bx-search'></i>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</nav>
+					<!-- end navbar row -->
+					<!-- start card row -->
+					<div class="row">
+						<div class="col-12 col-lg-6 flex-lg-row">
+							<div class="card">
+								<div class="card-body">
+									<h3 class="card-title my_card_title">Tweet content</h3>
+									<p class="text-justify card_content_text"> {{tweet_content}} </p> 
+									<p class="text-right">{{tweet_url}}</p>
+									<p class="center"> {{if_analyzed_before}}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-lg-6 flex-lg-row">
+							<div class="card">
+								<div class="row no-gutters">
+									<div class="col-md-4 flex-lg-2">
+										<div class="card-body" >
+											<div class="card center">
+												<h1>{{credi_score}}%</h1>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8 flex-lg-row">
+										<div class="card-body">
+											<h3 class="card-title my_card_title">Analysis Result:</h3>
+											<p class="card-text card_content_text">{{str_result}} <br> {{fake_num}} <br> {{real_num}}</p>
+											<p class="card-text card_content_text"><small>{{ana_time}}</small></p>
+										</div>
+									</div>
+									<p class="center" style="padding: 5px;"> *Disclaimer: Due to the limitation of our current dataset, actual facts may be different from the above indicator. This credibility evaluation result is shown for reference purposes only.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end card row -->
+					<!-- start line chart row-->
+					<div class="row">
+						<div class="col-12 col-lg-12 flex-lg-row">
+							<div class="card radius-15">
+								<div class="card-header ">
+									<h3 class="mb-2 mb-lg-0 my_card_title">Major Influencer Credibility Trend</h3>
+								</div>
+								<div class="card-body">
+									<div id="chart1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end line chart row autocomplete="off"-->
+					<div class="row">
+						<div class="col-12 col-lg-10 mx-auto">
+							<div class="card radius-15">
+								<div class="card-body">
+									<div class="text-center col-lg-10" style="margin: auto;">
+										<h3 class="mt-4 font-weight-bold">Help us expand the dataset!</h3>
+										<p class="mt-4">Notice: For better evaluation accuracy in the future, you are more than welcomed to share your knowledge with us! Please just kindly put the link to the specific tweet and label them as real or fake in the section below. Together we can make this a powerful tool!</p>
+									</div>
+									<form id="user_post" action="credibility" method="POST"> 
+										<div class="form-group mt-4">
+											<label>Tweet link</label>
+											<input type="text" class="form-control" placeholder="https://twitter.com/" name="url" autocomplete="off" />
+										</div>
+										<div class="form-group">
+											<label>Tag</label>
+											<select class="form-control" name="tag">
+												<option value="Real">Real</option>
+												<option value="Fake">Fake</option>
+											</select>
+										</div>
+										<div id="flask_data" d="{{submitted_flag}}" class="btn-group mt-3 w-100" >
+											<button type="submit" class="btn btn-light btn-block" name="query" value="key2">Submit</button>
+											</button>
+										</div>
+									</form>
+									<!-- <iframe id="id_iframe" name="my_iframe" style="display:none;"></iframe> -->
+									<hr/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end page-content-wrapper-->
+		</div>
+		<!--end page-wrapper-->
+
+		<!--overlay-->
+		<div class="overlay toggle-btn-mobile"></div>
+
+		<!--Back To Top Button--> 
+		<a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		
+		<!--footer -->
+		<div class="footer">
+			<p class="mb-0">6895 Big Data Analytics | Developed By ct2990 bf2477
+			</p>
+		</div>
+		<!-- end footer -->
+	</div>
+
+	<!-- JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="../sensecovid/static/js/jquery.min.js"></script>
+	<script src="../sensecovid/static/js/popper.min.js"></script>
+	<script src="../sensecovid/static/js/bootstrap.min.js"></script>
+	<!--plugins-->
+	<script src="../sensecovid/static/js/simplebar.min.js"></script>
+	<script src="../sensecovid/static/js/metisMenu.min.js"></script>
+	<!-- <script src="../sensecovid/static/js/perfect-scrollbar.js"></script> -->
+	<!--notification js -->
+	<script src="../sensecovid/static/js/lobibox.min.js"></script>
+	<script src="../sensecovid/static/js/notifications.min.js"></script>
+	<script src="../sensecovid/static/js/notification-custom-script.js"></script>
+	<!-- charts -->
+	<script src="../sensecovid/static/js/apexcharts.min.js"></script> 
+	<script src="../sensecovid/static/js/echarts.min.js"></script>
+	<!-- App JS -->
+	<script src="../sensecovid/static/js/app.js"></script>
+
+	<script>
+		// Date.prototype.format = function (fmt) {
+        //     var o = {
+        //         "y+": this.getFullYear, //年
+        //         "M+": this.getMonth() + 1, //月份
+        //         "d+": this.getDate(), //日
+        //         "h+": this.getHours(), //小时
+        //         "m+": this.getMinutes(), //分
+        //         "s+": this.getSeconds() //秒
+        //     };
+        //     if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        //     for (var k in o)
+        //         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        //     return fmt;
+        // }
+        // setInterval("document.getElementById('clock').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
+		function time() {
+			var today = new Date((new Date()).getTime());
+			var utc = today.getTime() + (today.getTimezoneOffset() * 60000);
+			var nyDate = new Date(utc + (3600000 * (-4)));
+			var nyhour = nyDate.getHours() < 9 ? ("0" + nyDate.getHours()) : nyDate.getHours();
+            var time;
+            var day;
+            var min;    //= today.getMinutes();
+            if(today.getMinutes()<10){
+                min = "0" + today.getMinutes();
+            }else {
+                min = today.getMinutes();
+            }
+            var second; //= today.getMinutes();
+            if(today.getSeconds()<10){
+                second = "0" + today.getSeconds();
+            }else {
+                second = today.getSeconds();
+            }
+			var strnytime = nyhour + ":" + min + ":" + second + "&nbsp;";
+			document.getElementById("clock").innerHTML = (nyDate.getFullYear() + "-" + (nyDate.getMonth() + 1) + "-" + nyDate.getDate() + " " + strnytime + ' EDT');
+        }
+        var myTime = setInterval("time()", 1000);
+	</script>
+
+	<script>
+		var options = {
+			series: [{
+				name: 'BBC',
+				data: [18, 51, 80, 38, 88, 50, 40, 52, 88, 80, 60, 70]
+			}, {
+				name: 'ABC',
+				data: [27, 38, 60, 77, 40, 50, 49, 29, 42, 27, 42, 50]
+			}],
+			chart: {
+				foreColor: 'rgba(255, 255, 255, 0.65)',
+				type: 'line',
+				height: 340,
+				toolbar: {
+					show: false,
+					tools: {
+						download: true,
+						selection: true,
+						zoom: true,
+						zoomin: true,
+						zoomout: true,
+						pan: true,
+						reset: true | '<img src="/static/icons/favicon-32x32.png" width="20">',
+						customIcons: []
+					}
+				},
+				
+				zoom: {
+					enabled: false
+				},
+				dropShadow: {
+					enabled: true,
+					top: 3,
+					left: 14,
+					blur: 4,
+					opacity: 0.10,
+				}
+			},
+			legend: {
+				position: 'top',
+				horizontalAlign: 'left',
+				offsetX: -25
+			},
+			dataLabels: {
+				enabled: false
+			},
+			stroke: {
+				show: true,
+				width: 3,
+				curve: 'smooth'
+			},
+			tooltip: {
+				theme: 'dark',
+				y: {
+					formatter: function (val) {
+						return " " + val + "%"
+					}
+				}
+			},
+			grid: {
+				show: true,
+				borderColor: 'rgba(255, 255, 255, 0.12)',
+				strokeDashArray: 5,
+			},
+			colors: ["#fff", "#ACD4F4"],
+			yaxis: {
+				labels: {
+					formatter: function (value) {
+						return value + "$";
+					}
+				},
+			},
+			xaxis: {
+				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+			}
+		};
+		var chart = new ApexCharts(document.querySelector("#chart1"), options);
+		chart.render();
+	</script>
+
+	<script>
+		getWidth();
+		function round_success_noti() {
+			Lobibox.notify('success', {
+				pauseDelayOnHover: true,
+				size: 'mini',
+				rounded: true,
+				icon: 'bx bx-check-circle',
+				delayIndicator: false,
+				continueDelayOnInactiveTab: false,
+				position: 'top right',
+				msg: 'Your submission is receivd! Thanks for your help!'
+			});
+		};
+		function round_default_noti() {
+			Lobibox.notify('default', {
+				pauseDelayOnHover: true,
+				size: 'mini',
+				rounded: true,
+				delayIndicator: false,
+				continueDelayOnInactiveTab: false,
+				position: 'top right',
+				msg: 'This url has been submitted. Thank you!'
+			});
+		};
+		function round_warning_noti() {
+			Lobibox.notify('warning', {
+				pauseDelayOnHover: true,
+				size: 'mini',
+				rounded: true,
+				icon: 'bx bx-error',
+				delayIndicator: false,
+				continueDelayOnInactiveTab: false,
+				position: 'top right',
+				msg: 'Url can not be empty'
+			});
+		};
+		var data = document.getElementById('flask_data').getAttribute('d');//绑定以获取data值
+		// alert(data)
+		if(data == 'true')
+			round_success_noti();
+		else if(data == 'false'){
+			round_default_noti();
+		}
+		else if(data == 'false2'){
+			round_warning_noti();
+		}
+		setTimeout(function (){
+			window.addEventListener("resize", function () {
+				getWidth();
+			});
+		},200)
+		setTimeout();
+		function getWidth(){
+			var Div=document.getElementById('side_bar');
+			w = Div.clientWidth||Div.offsetWidth;
+			var top_side_div=document.getElementById('top_menu');
+			var side_div=document.getElementsByName('menu');
+			if(w > 290){
+				side_div.forEach(function (element) {
+					element.style.fontSize = '26px';
+				});
+				top_side_div.style.fontSize = '33px';
+			}
+			if(w < 260){
+				side_div.forEach(function (element) {
+					element.style.fontSize = '20px';
+				});
+				top_side_div.style.fontSize = '25px'
+			}
+		};
+			
+	</script>
+</body>
+
+</html>
