@@ -1,5 +1,9 @@
 # COVID-19-Twitter-Analyzer
-## Preparation
+## System Architecture Overview
+
+![System Architecture](./imgs/sys-architecture.png)
+
+## Environment Preparation
 
 1. **Twitter-side setup**
 
