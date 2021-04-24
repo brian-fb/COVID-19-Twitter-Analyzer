@@ -56,7 +56,7 @@
 		<div class="sidebar-wrapper" data-simplebar="true" id="side_bar" >
 			<div class="sidebar-header" >
 				<div>
-					<!-- 左侧导航栏名 -->
+					<!-- left menu title -->
 					<h4 class="logo-text" id="top_menu">Sensecovid</h4>
 				</div>
 				<a href="javascript:;" class="toggle-btn ml-auto"> <i class="bx bx-menu"></i>
@@ -350,17 +350,17 @@
 				mapChart.hideLoading();
 				//   alert("success");
 				echarts.registerMap('USA', usaJson, {
-					Alaska: {              // 把阿拉斯加移到美国主大陆左下方
+					Alaska: {              // Location of Alaska
 						left: -131,
 						top: 25,
 						width: 15
 					},
 					Hawaii: {
-						left: -110,        // 夏威夷
+						left: -110,
 						top: 28,
 						width: 5
 					},
-					'Puerto Rico': {       // 波多黎各
+					'Puerto Rico': {
 						left: -76,
 						top: 26,
 						width: 2
@@ -374,7 +374,7 @@
 							color: "#fff"
 						},
 					},
-					tooltip: {                           //各个state上浮动信息框
+					tooltip: {                           //Floating Information Box
 						trigger: 'item',
 						showDelay: 0,
 						transitionDuration: 0.2,
@@ -384,7 +384,7 @@
 							return params.seriesName + '<br/>' + params.name + ': ' + value;
 							}
 					},
-					visualMap: {                         //右下角标尺数值条
+					visualMap: {                         //Scale Indicator
 						left: 'right',
 						min: -55,
 						max: 55,
@@ -393,14 +393,14 @@
 									"rgba(224,243,248,0.8)", "rgba(255,255,191,0.8)", "rgba(254,224,144,0.8)", "rgba(253,174,97,0.8)",
 									"rgba(244,109,67,0.8)", "rgba(215,48,39,0.8)", "rgba(165,0,38,0.8)" ]
 						},
-						text: ['High', 'Low'],           // 文本，默认为数值文本
+						text: ['High', 'Low'],           // keywords
 						textStyle: {
 							color: "#B0C4DE",
 							fontSize: 11
 						},
 						calculable: true
 					},
-					toolbox: {                         //左上角工具箱 ta view/restore/save image
+					toolbox: {                         // Top Left Tool Box
 						show: true,
 						//orient: 'vertical',
 						left: 'left',
@@ -416,9 +416,9 @@
 					},
 					regions: [{
 						name: "Puerto Rico",
-						itemStyle: {      // 隐藏地图
+						itemStyle: {      // Hide the map
 							normal: {
-								opacity: 0, // 为 0 时不绘制该图形
+								opacity: 0, // Not showing
 							}
 						},
 						label: {
