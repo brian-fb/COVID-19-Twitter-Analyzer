@@ -1,32 +1,29 @@
-# COVID-19-Twitter-Analyzer
+# SENSECOVID: COVID-19 Twitter Analyzer
+Welcome to project sensecovid! This is an intelligent online system that can automatically aggregate and summarize valuable information from live streaming tweets around COVID-19 related topics.
+
+**Note:** Please feel free to visit our website via www.sensecovid.info 
+
 ## System Architecture Overview
 
 ![System Architecture](./imgs/sys-architecture.png)
 
 ## Environment Preparation
 
-1. **Twitter-side setup**
+1. #### **Twitter-side setup**
 
     -  Create a new app at [Twitter Developer Portal](https://developer.twitter.com/en/portal/dashboard) 
 
-    - Save your **Consumer Keys** and **Authentication Tokens**
+    -  Save your **Consumer Keys** and **Authentication Tokens**
 
-2. **De-hydrated COVID-19 Twitter set**
+2. #### **Server-side setup**
 
-    -  Download the latest filtered data from [IEEEDataPort](https://ieee-dataport.org/open-access/coronavirus-covid-19-tweets-dataset)
+    - **Create a conda virual enviroment**
+        - `conda create -n twitter python=3.7`
+    - **Install all required packages**
+        - `conda activate twitter`
+        - `pip install -r requirements.txt`
+    - Set up credentials for [twarc](https://github.com/DocNow/twarc) ( **Consumer Keys, etc)**
+        - `twarc config`
 
-3. **Twitter data hydrator set-up**
+## Initiate the system
 
-    -  Install [twarc](https://github.com/DocNow/twarc): 
-
-      ```
-      pip install twarc
-      ```
-
-    -  Set up credentials ( **Consumer Keys, etc)**
-
-      ```
-      twarc config
-      ```
-
-## Preparation
